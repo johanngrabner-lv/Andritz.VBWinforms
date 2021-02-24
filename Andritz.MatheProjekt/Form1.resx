@@ -124,6 +124,6 @@ Keypress - TryParse
 1. Anhand des ausgewählten Eintrags in der Listbox + oder -
 2. Anhand der Radiobutton Auswahl + oder - 
 
-</value>
+Tooltip </value>
   </data>
 </root>
