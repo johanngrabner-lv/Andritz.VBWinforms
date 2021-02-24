@@ -1,0 +1,49 @@
+﻿
+ create database dbAndritz
+
+ use dbAndritz
+
+ CREATE TABLE Maschienen
+ (
+
+	Id int primary key identity, --wird hochgezählt
+	Maschinenname varchar(30),
+	Preis decimal(10,2),
+	Archiviert bit
+)
+
+//DML - Data Manipulation Language - INSERT, UPDATE, DELETE, SELECT 
+
+INSERT INTO Maschienen VALUES('Johann V2', 300, 1) --Datensatz hinzufügen
+
+SELECT Maschinenname, archiviert, preis, id FROM Maschienen
+
+UPDATE Maschienen SET Maschinenname='Andritz Q2' WHERE id = 1
+
+DELETE Maschienen where id=1
+
+
+exec AddMachine 'Hello', 10, 1 -- positional
+
+exec AddMachine @Archiviert=1, @Machinename='Hello' --named arguments
+
+
+alter procedure AddMachine
+(
+   @Machinename varchar(20),
+   @Preis decimal(10,2)=5,
+   @Archiviert bit
+)
+as
+INSERT INTO Maschienen(Maschinenname,Preis,Archiviert) VALUES( @Machinename, @Preis, @Archiviert) --Datensatz hinzufügen
+
+
+SELECT Maschinenname, archiviert, preis, id FROM Maschienen -- Abfrage aus Tabelle
+
+SELECT * FROM v_NurAktuelleMaschinen
+
+
+CREATE VIEW v_NurAktuelleMaschinen
+as
+SELECT ID, Maschinenname, Preis FROM Maschienen 
+WHERE Archiviert=0
