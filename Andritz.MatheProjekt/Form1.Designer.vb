@@ -22,34 +22,38 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtZahl1 = New System.Windows.Forms.TextBox()
+        Me.txtZahl2 = New System.Windows.Forms.TextBox()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lstOperatoren = New System.Windows.Forms.ListBox()
+        Me.cmdCalcVariante1MitList = New System.Windows.Forms.Button()
+        Me.lblResult1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.optMinus = New System.Windows.Forms.RadioButton()
+        Me.optPlus = New System.Windows.Forms.RadioButton()
+        Me.cmdCalcVariante2MitOpt = New System.Windows.Forms.Button()
+        Me.lblResult2 = New System.Windows.Forms.Label()
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.GroupBox1.SuspendLayout()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'TextBox1
+        'txtZahl1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(18, 36)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(112, 20)
-        Me.TextBox1.TabIndex = 0
+        Me.txtZahl1.Location = New System.Drawing.Point(18, 36)
+        Me.txtZahl1.Name = "txtZahl1"
+        Me.txtZahl1.Size = New System.Drawing.Size(112, 20)
+        Me.txtZahl1.TabIndex = 0
+        Me.txtZahl1.Text = "0"
         '
-        'TextBox2
+        'txtZahl2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(151, 37)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(107, 20)
-        Me.TextBox2.TabIndex = 1
+        Me.txtZahl2.Location = New System.Drawing.Point(151, 37)
+        Me.txtZahl2.Name = "txtZahl2"
+        Me.txtZahl2.Size = New System.Drawing.Size(107, 20)
+        Me.txtZahl2.TabIndex = 1
         '
         'TextBox3
         '
@@ -60,37 +64,37 @@ Partial Class Form1
         Me.TextBox3.TabIndex = 2
         Me.TextBox3.Text = resources.GetString("TextBox3.Text")
         '
-        'ListBox1
+        'lstOperatoren
         '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Items.AddRange(New Object() {"+", "-"})
-        Me.ListBox1.Location = New System.Drawing.Point(18, 74)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(55, 43)
-        Me.ListBox1.TabIndex = 3
+        Me.lstOperatoren.FormattingEnabled = True
+        Me.lstOperatoren.Items.AddRange(New Object() {"+", "-"})
+        Me.lstOperatoren.Location = New System.Drawing.Point(18, 74)
+        Me.lstOperatoren.Name = "lstOperatoren"
+        Me.lstOperatoren.Size = New System.Drawing.Size(55, 43)
+        Me.lstOperatoren.TabIndex = 3
         '
-        'Button1
+        'cmdCalcVariante1MitList
         '
-        Me.Button1.Location = New System.Drawing.Point(85, 73)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(89, 43)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Berechnen"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.cmdCalcVariante1MitList.Location = New System.Drawing.Point(85, 73)
+        Me.cmdCalcVariante1MitList.Name = "cmdCalcVariante1MitList"
+        Me.cmdCalcVariante1MitList.Size = New System.Drawing.Size(89, 43)
+        Me.cmdCalcVariante1MitList.TabIndex = 4
+        Me.cmdCalcVariante1MitList.Text = "Berechnen"
+        Me.cmdCalcVariante1MitList.UseVisualStyleBackColor = True
         '
-        'Label1
+        'lblResult1
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(197, 88)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(106, 13)
-        Me.Label1.TabIndex = 5
-        Me.Label1.Text = "Eregebnis mit Listbox"
+        Me.lblResult1.AutoSize = True
+        Me.lblResult1.Location = New System.Drawing.Point(197, 88)
+        Me.lblResult1.Name = "lblResult1"
+        Me.lblResult1.Size = New System.Drawing.Size(106, 13)
+        Me.lblResult1.TabIndex = 5
+        Me.lblResult1.Text = "Eregebnis mit Listbox"
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.RadioButton2)
-        Me.GroupBox1.Controls.Add(Me.RadioButton1)
+        Me.GroupBox1.Controls.Add(Me.optMinus)
+        Me.GroupBox1.Controls.Add(Me.optPlus)
         Me.GroupBox1.Location = New System.Drawing.Point(19, 135)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(120, 78)
@@ -98,78 +102,84 @@ Partial Class Form1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Addition or Sub"
         '
-        'RadioButton1
+        'optMinus
         '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(14, 22)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(31, 17)
-        Me.RadioButton1.TabIndex = 0
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "+"
-        Me.RadioButton1.UseVisualStyleBackColor = True
+        Me.optMinus.AutoSize = True
+        Me.optMinus.Location = New System.Drawing.Point(14, 45)
+        Me.optMinus.Name = "optMinus"
+        Me.optMinus.Size = New System.Drawing.Size(28, 17)
+        Me.optMinus.TabIndex = 1
+        Me.optMinus.TabStop = True
+        Me.optMinus.Text = "-"
+        Me.optMinus.UseVisualStyleBackColor = True
         '
-        'RadioButton2
+        'optPlus
         '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(14, 45)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(28, 17)
-        Me.RadioButton2.TabIndex = 1
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "-"
-        Me.RadioButton2.UseVisualStyleBackColor = True
+        Me.optPlus.AutoSize = True
+        Me.optPlus.Location = New System.Drawing.Point(14, 22)
+        Me.optPlus.Name = "optPlus"
+        Me.optPlus.Size = New System.Drawing.Size(31, 17)
+        Me.optPlus.TabIndex = 0
+        Me.optPlus.TabStop = True
+        Me.optPlus.Text = "+"
+        Me.optPlus.UseVisualStyleBackColor = True
         '
-        'Button2
+        'cmdCalcVariante2MitOpt
         '
-        Me.Button2.Location = New System.Drawing.Point(151, 154)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(89, 43)
-        Me.Button2.TabIndex = 7
-        Me.Button2.Text = "Berechnen"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.cmdCalcVariante2MitOpt.Location = New System.Drawing.Point(151, 154)
+        Me.cmdCalcVariante2MitOpt.Name = "cmdCalcVariante2MitOpt"
+        Me.cmdCalcVariante2MitOpt.Size = New System.Drawing.Size(89, 43)
+        Me.cmdCalcVariante2MitOpt.TabIndex = 7
+        Me.cmdCalcVariante2MitOpt.Text = "Berechnen"
+        Me.cmdCalcVariante2MitOpt.UseVisualStyleBackColor = True
         '
-        'Label2
+        'lblResult2
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(268, 180)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(106, 13)
-        Me.Label2.TabIndex = 8
-        Me.Label2.Text = "Eregebnis mit Listbox"
+        Me.lblResult2.AutoSize = True
+        Me.lblResult2.Location = New System.Drawing.Point(268, 180)
+        Me.lblResult2.Name = "lblResult2"
+        Me.lblResult2.Size = New System.Drawing.Size(106, 13)
+        Me.lblResult2.TabIndex = 8
+        Me.lblResult2.Text = "Eregebnis mit Listbox"
+        '
+        'ErrorProvider1
+        '
+        Me.ErrorProvider1.ContainerControl = Me
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.lblResult2)
+        Me.Controls.Add(Me.cmdCalcVariante2MitOpt)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.ListBox1)
+        Me.Controls.Add(Me.lblResult1)
+        Me.Controls.Add(Me.cmdCalcVariante1MitList)
+        Me.Controls.Add(Me.lstOperatoren)
         Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtZahl2)
+        Me.Controls.Add(Me.txtZahl1)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txtZahl1 As TextBox
+    Friend WithEvents txtZahl2 As TextBox
     Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents ListBox1 As ListBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Label1 As Label
+    Friend WithEvents lstOperatoren As ListBox
+    Friend WithEvents cmdCalcVariante1MitList As Button
+    Friend WithEvents lblResult1 As Label
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents RadioButton2 As RadioButton
-    Friend WithEvents RadioButton1 As RadioButton
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Label2 As Label
+    Friend WithEvents optMinus As RadioButton
+    Friend WithEvents optPlus As RadioButton
+    Friend WithEvents cmdCalcVariante2MitOpt As Button
+    Friend WithEvents lblResult2 As Label
+    Friend WithEvents ErrorProvider1 As ErrorProvider
 End Class
