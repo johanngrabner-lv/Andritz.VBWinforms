@@ -71,4 +71,16 @@ Public Class Form1
 
 
     End Sub
+
+    Private Sub txtTime_TextChanged(sender As Object, e As EventArgs) Handles txtTime.TextChanged
+
+    End Sub
+
+    Private Sub lstOpenforms_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstOpenforms.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Cursor = Cursors.WaitCursor
+    End Sub
 End Class

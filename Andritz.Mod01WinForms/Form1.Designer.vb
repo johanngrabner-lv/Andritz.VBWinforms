@@ -31,12 +31,14 @@ Partial Class Form1
         Me.DateiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NeuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BeendenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RechnenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OffeneFormulareAnzeigenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.grpGender = New System.Windows.Forms.GroupBox()
         Me.btnGender = New System.Windows.Forms.Button()
         Me.txtGender = New System.Windows.Forms.TextBox()
-        Me.RechnenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.lstOpenforms = New System.Windows.Forms.ListBox()
-        Me.OffeneFormulareAnzeigenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -62,7 +64,7 @@ Partial Class Form1
         Me.btnShowTime.Location = New System.Drawing.Point(49, 137)
         Me.btnShowTime.Name = "btnShowTime"
         Me.btnShowTime.Size = New System.Drawing.Size(310, 26)
-        Me.btnShowTime.TabIndex = 2
+        Me.btnShowTime.TabIndex = 0
         Me.btnShowTime.Text = "Zeit anzeigen"
         Me.btnShowTime.UseVisualStyleBackColor = True
         '
@@ -77,7 +79,7 @@ Partial Class Form1
         '
         Me.btnCopy.BackColor = System.Drawing.Color.Red
         Me.btnCopy.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Strikeout), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCopy.Location = New System.Drawing.Point(49, 197)
+        Me.btnCopy.Location = New System.Drawing.Point(65, 196)
         Me.btnCopy.Name = "btnCopy"
         Me.btnCopy.Size = New System.Drawing.Size(233, 97)
         Me.btnCopy.TabIndex = 0
@@ -112,6 +114,18 @@ Partial Class Form1
         Me.BeendenToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
         Me.BeendenToolStripMenuItem.Text = "Beenden"
         '
+        'RechnenToolStripMenuItem
+        '
+        Me.RechnenToolStripMenuItem.Name = "RechnenToolStripMenuItem"
+        Me.RechnenToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.RechnenToolStripMenuItem.Text = "Rechnen"
+        '
+        'OffeneFormulareAnzeigenToolStripMenuItem
+        '
+        Me.OffeneFormulareAnzeigenToolStripMenuItem.Name = "OffeneFormulareAnzeigenToolStripMenuItem"
+        Me.OffeneFormulareAnzeigenToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.OffeneFormulareAnzeigenToolStripMenuItem.Text = "offene Formulare anzeigen"
+        '
         'grpGender
         '
         Me.grpGender.Location = New System.Drawing.Point(409, 57)
@@ -137,12 +151,6 @@ Partial Class Form1
         Me.txtGender.Size = New System.Drawing.Size(100, 20)
         Me.txtGender.TabIndex = 5
         '
-        'RechnenToolStripMenuItem
-        '
-        Me.RechnenToolStripMenuItem.Name = "RechnenToolStripMenuItem"
-        Me.RechnenToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
-        Me.RechnenToolStripMenuItem.Text = "Rechnen"
-        '
         'lstOpenforms
         '
         Me.lstOpenforms.FormattingEnabled = True
@@ -151,11 +159,24 @@ Partial Class Form1
         Me.lstOpenforms.Size = New System.Drawing.Size(120, 95)
         Me.lstOpenforms.TabIndex = 8
         '
-        'OffeneFormulareAnzeigenToolStripMenuItem
+        'Button1
         '
-        Me.OffeneFormulareAnzeigenToolStripMenuItem.Name = "OffeneFormulareAnzeigenToolStripMenuItem"
-        Me.OffeneFormulareAnzeigenToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
-        Me.OffeneFormulareAnzeigenToolStripMenuItem.Text = "offene Formulare anzeigen"
+        Me.Button1.Location = New System.Drawing.Point(283, 311)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 9
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(43, 197)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(81, 17)
+        Me.CheckBox1.TabIndex = 2
+        Me.CheckBox1.Text = "CheckBox1"
+        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -164,6 +185,8 @@ Partial Class Form1
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.Lime
         Me.ClientSize = New System.Drawing.Size(723, 354)
+        Me.Controls.Add(Me.CheckBox1)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.lstOpenforms)
         Me.Controls.Add(Me.txtGender)
         Me.Controls.Add(Me.btnGender)
@@ -200,4 +223,6 @@ Partial Class Form1
     Friend WithEvents RechnenToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OffeneFormulareAnzeigenToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents lstOpenforms As ListBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents CheckBox1 As CheckBox
 End Class

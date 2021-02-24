@@ -11,6 +11,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MyWebApiDemo", "MyWebApiDem
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Andritz.Mod01WinForms", "Andritz.Mod01WinForms\Andritz.Mod01WinForms.vbproj", "{CCAC785C-3CAF-462D-BC0F-375FC6D146D0}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Andritz.Mod02WinForms", "Andritz.Mod02WinForms\Andritz.Mod02WinForms.vbproj", "{84C82791-6983-4C60-AD28-46966510281A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{CCAC785C-3CAF-462D-BC0F-375FC6D146D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCAC785C-3CAF-462D-BC0F-375FC6D146D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCAC785C-3CAF-462D-BC0F-375FC6D146D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84C82791-6983-4C60-AD28-46966510281A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84C82791-6983-4C60-AD28-46966510281A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84C82791-6983-4C60-AD28-46966510281A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84C82791-6983-4C60-AD28-46966510281A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
