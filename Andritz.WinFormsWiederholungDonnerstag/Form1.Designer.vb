@@ -40,6 +40,7 @@ Partial Class Form1
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.lstWeekdays = New System.Windows.Forms.ListBox()
+        Me.MyTimerControl1 = New Andritz.MeineControls.MyTimerControl()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
@@ -137,6 +138,7 @@ Partial Class Form1
         '
         'SplitContainer1.Panel2
         '
+        Me.SplitContainer1.Panel2.Controls.Add(Me.MyTimerControl1)
         Me.SplitContainer1.Panel2.Controls.Add(Me.TextBox1)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Button1)
         Me.SplitContainer1.Size = New System.Drawing.Size(800, 404)
@@ -172,6 +174,14 @@ Partial Class Form1
         Me.lstWeekdays.TabStop = False
         Me.lstWeekdays.Tag = "Wochentag"
         Me.ToolTip1.SetToolTip(Me.lstWeekdays, "Bitte Wochentag auswählen")
+        '
+        'MyTimerControl1
+        '
+        Me.MyTimerControl1.Location = New System.Drawing.Point(67, 238)
+        Me.MyTimerControl1.Name = "MyTimerControl1"
+        Me.MyTimerControl1.NewProperty = Nothing
+        Me.MyTimerControl1.Size = New System.Drawing.Size(247, 115)
+        Me.MyTimerControl1.TabIndex = 2
         '
         'Form1
         '
@@ -215,4 +225,5 @@ Partial Class Form1
     Friend WithEvents lstWeekdays As ListBox
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Button1 As Button
+    Friend WithEvents MyTimerControl1 As MeineControls.MyTimerControl
 End Class

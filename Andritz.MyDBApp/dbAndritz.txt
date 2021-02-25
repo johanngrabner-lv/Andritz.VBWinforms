@@ -1,56 +1,80 @@
 ﻿
+
+--SQL Structured Query Language -- ANSI
+
+
  create database dbAndritz2021
- go
- use dbAndritz
- go
+
+ GO
+
+ use dbAndritz2021
+
+ GO
+
+ --DDL Data Definition Language
+
  CREATE TABLE Maschienen
  (
 
 	Id int primary key identity, --wird hochgezählt
-	Maschinenname varchar(30),
+	Maschienenname varchar(30),
 	Preis decimal(10,2),
 	Archiviert bit
 )
-go
-//DML - Data Manipulation Language - INSERT, UPDATE, DELETE, SELECT 
+
+--DML - Data Manipulation Language - INSERT, UPDATE, DELETE, SELECT 
 
 INSERT INTO Maschienen VALUES('Johann V2', 300, 1) --Datensatz hinzufügen
+INSERT INTO Maschienen(Maschienenname, Preis, Archiviert) VALUES('Johann V2', 300, 1) --Datensatz hinzufügen
+--(1 row affected)
+INSERT INTO Maschienen(Maschienenname, Preis, Archiviert) VALUES('Gruber V5', 200, 0) --Datensatz hinzufügen
+--(1 row affected)
 
-SELECT Maschinenname, archiviert, preis, id FROM Maschienen
+SELECT Maschienenname, archiviert, preis, id FROM Maschienen
 
-UPDATE Maschienen SET Maschinenname='Andritz Q2' WHERE id = 1
+UPDATE Maschienen SET Maschienenname='Andritz Q2', Archiviert=0, Preis=700 WHERE id = 1
+--(1 row affected)
 
-DELETE Maschienen where id=1
+UPDATE Maschienen SET Maschienenname='Andritz Q2', Archiviert=0, Preis=700 WHERE id = 7
 
-go
+DELETE Maschienen where id=3
+
 create procedure AddMachine
 (
    @Machinename varchar(20),
-   @Preis decimal(10,2)=5,
+   @Preis decimal(10,2)=5,--defaultwert für Preis ist 5
    @Archiviert bit
 )
 as
-INSERT INTO Maschienen(Maschinenname,Preis,Archiviert) VALUES( @Machinename, @Preis, @Archiviert) --Datensatz hinzufügen
+INSERT INTO Maschienen(Maschienenname,Preis,Archiviert) VALUES( @Machinename, @Preis, @Archiviert) --Datensatz hinzufügen
 
-go
+
+AddMachine 'M1', 200, 0
+
+
+
+
 
 exec AddMachine 'Hello', 10, 1 -- positional
 
 exec AddMachine @Archiviert=1, @Machinename='Hello' --named arguments
 
 
+--Autowert-Lücken verhindern
+DBCC CHECKIDENT ('Maschienen', RESEED, 1)
 
-
-SELECT Maschinenname, archiviert, preis, id FROM Maschienen -- Abfrage aus Tabelle
-
-GO
 
 
 CREATE VIEW v_NurAktuelleMaschinen
 as
-SELECT ID, Maschinenname, Preis FROM Maschienen 
+SELECT ID, Maschienenname, Preis FROM Maschienen 
 WHERE Archiviert=0
 
-GO
+CREATE VIEW v_AlleMaschinen
+as
+SELECT ID, Maschienenname, Preis, Archiviert FROM Maschienen 
+
 
 SELECT * FROM v_NurAktuelleMaschinen
+
+SELECT * FROM v_AlleMaschinen
