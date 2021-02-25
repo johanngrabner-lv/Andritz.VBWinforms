@@ -78,3 +78,37 @@ SELECT ID, Maschienenname, Preis, Archiviert FROM Maschienen
 SELECT * FROM v_NurAktuelleMaschinen
 
 SELECT * FROM v_AlleMaschinen
+
+
+create procedure UpdateMachine
+(
+@Id int,
+   @Machinename varchar(20),
+   @Preis decimal(10,2),--defaultwert für Preis ist 5
+   @Archiviert bit
+)
+as
+UPDATE Maschienen
+SET 
+Maschienenname=@Machinename,
+Preis=@Preis,
+Archiviert=@Archiviert
+where ID = @ID
+
+UpdateMachine @Id=1, @Machinename='Test Neu', @Archiviert=0. @Preis=17
+
+
+create procedure DeleteMachine
+(
+@Id int
+)
+as
+DELETE Maschienen
+where ID = @ID
+
+DeleteMachine 1
+
+
+SELECT Maschienenname AS N, archiviert, preis*1.2 AS Brutton, id FROM Maschienen
+
+
