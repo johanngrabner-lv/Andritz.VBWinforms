@@ -22,10 +22,29 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container()
+        Me.btnADO = New System.Windows.Forms.Button()
+        Me.SuspendLayout()
+        '
+        'btnADO
+        '
+        Me.btnADO.Location = New System.Drawing.Point(48, 13)
+        Me.btnADO.Name = "btnADO"
+        Me.btnADO.Size = New System.Drawing.Size(145, 31)
+        Me.btnADO.TabIndex = 0
+        Me.btnADO.Text = "ADO Demo"
+        Me.btnADO.UseVisualStyleBackColor = True
+        '
+        'Form1
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnADO)
+        Me.Name = "Form1"
         Me.Text = "Form1"
+        Me.ResumeLayout(False)
+
     End Sub
 
+    Friend WithEvents btnADO As Button
 End Class
