@@ -43,10 +43,14 @@ exec AddMachine @Archiviert=1, @Machinename='Hello' --named arguments
 
 SELECT Maschinenname, archiviert, preis, id FROM Maschienen -- Abfrage aus Tabelle
 
-SELECT * FROM v_NurAktuelleMaschinen
+GO
 
 
 CREATE VIEW v_NurAktuelleMaschinen
 as
 SELECT ID, Maschinenname, Preis FROM Maschienen 
 WHERE Archiviert=0
+
+GO
+
+SELECT * FROM v_NurAktuelleMaschinen
