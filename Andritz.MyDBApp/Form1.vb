@@ -33,7 +33,8 @@ Public Class Form1
 
             Debug.WriteLine("Es gibt " & anzahl & " Datensätze")
 
-            cmd.CommandText = "SELECT ID, Maschienenname, Preis FROM Maschienen"
+            cmd.CommandText = "SELECT ID, Maschienenname, Preis FROM Maschienen where id > 25; select * from Maschienen" 'MARS
+            cmd.CommandText = "SELECT ID, Maschienenname, Preis FROM Maschienen where id > 25"
 
             Dim myReader As SqlDataReader = cmd.ExecuteReader()
 
@@ -45,7 +46,37 @@ Public Class Form1
             While (myReader.Read())
                 Debug.WriteLine("ID: " & myReader("ID") & " Name: " & myReader("Maschienenname") & " Preis: " & myReader("Preis"))
             End While
+            'myReader.NextResult() 'MARS
+            myReader.Close()
 
+            Dim mName As String = "Donnerstag"
+            'Gefährlich für SQL Injection
+            cmd.CommandText = "INSERT INTO Maschienen VALUES('" & mName & "', 0, 1)"
+            cmd.ExecuteNonQuery()
+
+            mName = "Donnerstag als Parameter"
+            cmd.CommandText = "INSERT INTO Maschienen VALUES(@productname, 0, 1)"
+            'Prameterwert für @productname vergeben - verhindert SQL Injection
+            cmd.Parameters.Add(New SqlParameter("@productname", mName))
+            cmd.ExecuteNonQuery()
+
+
+            'Aufruf von Proc
+            cmd.CommandText = "AddMachine"
+            cmd.CommandType = CommandType.StoredProcedure
+            cmd.Parameters.Add(New SqlParameter("@Machinename", SqlDbType.VarChar))
+            cmd.Parameters.Add(New SqlParameter("@Preis", SqlDbType.Decimal))
+            cmd.Parameters.Add(New SqlParameter("@Archiviert", SqlDbType.Bit))
+
+            ' Dim p1 As New SqlParameter("Machinename", "Ein TExt")
+            ' cmd.Parameters.Add(p1)
+
+            cmd.Parameters("@Machinename").Value = "von Proc"
+            cmd.Parameters("@Preis").Value = 345
+            cmd.Parameters("@Archiviert").Value = 0
+
+            Dim affected As Integer = cmd.ExecuteNonQuery()
+            Debug.WriteLine("Es gibt " & anzahl & " Datensätze")
         Catch ex As Exception
             Debug.WriteLine(ex)
             ' Anweisungen 
@@ -70,6 +101,44 @@ Public Class Form1
         End Using 'automatisches Dispose--Close
 
 
+
+    End Sub
+
+    Dim maschinenListe As New List(Of Maschine)
+    Private Sub btnLesen_Click(sender As Object, e As EventArgs) Handles btnLesen.Click
+        Dim conString As String
+
+        conString = My.Settings.andritzDB
+
+
+        Dim con As DbConnection
+        con = New SqlConnection(conString)
+
+        con.Open()
+
+        Dim cmd As DbCommand = con.CreateCommand()
+        cmd.CommandText = "SELECT * FROM v_AlleMaschinen"
+
+        Dim myReader As SqlDataReader = cmd.ExecuteReader()
+        While (myReader.Read())
+            Dim m As New Maschine()
+            m.Id = myReader("Id")
+            m.Bezeichnung = myReader("Bezeichnung")
+            maschinenListe.Add(m)
+        End While
+        myReader.Close()
+
+        lstProdukte.DataSource = maschinenListe
+        lstProdukte.DisplayMember = "Bezeichnung"
+        lstProdukte.ValueMember = "ID"
+
+
+    End Sub
+
+    Private Sub lstProdukte_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstProdukte.SelectedIndexChanged
+
+        Dim ausgewaehlteMaschine As Maschine = lstProdukte.SelectedItem
+        Dim ausgewId As Int32 = CInt(lstProdukte.SelectedValue)
 
     End Sub
 End Class
