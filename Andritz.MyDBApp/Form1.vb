@@ -18,11 +18,36 @@ Public Class Form1
             'Statements abschicken
 
             Dim cmd As DbCommand = con.CreateCommand()
-            cmd.CommandText = "INSERT INTO Maschienen VALUES('from ADO.NET', 0, 1)"
+            cmd.CommandText = "INSERT INTO Maschienen VALUES('from ADO.NET V', 0, 1)"
 
             Dim affectd As Integer = cmd.ExecuteNonQuery() 'insert, update, delete, create 
 
+            cmd.CommandText = "DELETE Maschienen where id=8"
+            affectd = cmd.ExecuteNonQuery() 'insert, update, delete, create 
+
+            Debug.WriteLine("Es wurden n Element gelöscht " & affectd)
+
+            cmd.CommandText = "SELECT COUNT(*) FROM Maschienen"
+
+            Dim anzahl As Integer = CInt(cmd.ExecuteScalar())
+
+            Debug.WriteLine("Es gibt " & anzahl & " Datensätze")
+
+            cmd.CommandText = "SELECT ID, Maschienenname, Preis FROM Maschienen"
+
+            Dim myReader As SqlDataReader = cmd.ExecuteReader()
+
+            Dim nochEinDatensatzVorhanden As Boolean
+            'nochEinDatensatzVorhanden = myReader.Read() 'erste Zeile
+            'nochEinDatensatzVorhanden = myReader.Read() 'nächste Zeile
+
+
+            While (myReader.Read())
+                Debug.WriteLine("ID: " & myReader("ID") & " Name: " & myReader("Maschienenname") & " Preis: " & myReader("Preis"))
+            End While
+
         Catch ex As Exception
+            Debug.WriteLine(ex)
             ' Anweisungen 
         Finally
             ' wenn offen, Verbindung schließen 
