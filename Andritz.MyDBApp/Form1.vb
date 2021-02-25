@@ -104,30 +104,10 @@ Public Class Form1
 
     End Sub
 
-    Dim maschinenListe As New List(Of Maschine)
+
     Private Sub btnLesen_Click(sender As Object, e As EventArgs) Handles btnLesen.Click
-        Dim conString As String
 
-        conString = My.Settings.andritzDB
-
-
-        Dim con As DbConnection
-        con = New SqlConnection(conString)
-
-        con.Open()
-
-        Dim cmd As DbCommand = con.CreateCommand()
-        cmd.CommandText = "SELECT * FROM v_AlleMaschinen"
-
-        Dim myReader As SqlDataReader = cmd.ExecuteReader()
-        While (myReader.Read())
-            Dim m As New Maschine()
-            m.Id = myReader("Id")
-            m.Bezeichnung = myReader("Bezeichnung")
-            maschinenListe.Add(m)
-        End While
-        myReader.Close()
-
+        Dim maschinenListe As List(Of Maschine) = MyDBHelper.GetMaschinen()
         lstProdukte.DataSource = maschinenListe
         lstProdukte.DisplayMember = "Bezeichnung"
         lstProdukte.ValueMember = "ID"
@@ -138,7 +118,20 @@ Public Class Form1
     Private Sub lstProdukte_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstProdukte.SelectedIndexChanged
 
         Dim ausgewaehlteMaschine As Maschine = lstProdukte.SelectedItem
-        Dim ausgewId As Int32 = CInt(lstProdukte.SelectedValue)
+        'Dim ausgewId As Int32 = CInt(lstProdukte.SelectedValue)
+        txtId.Text = ausgewaehlteMaschine.Id
+        txtBez.Text = ausgewaehlteMaschine.Bezeichnung
+
 
     End Sub
+
+    Private Sub btnSpeichern_Click(sender As Object, e As EventArgs) Handles btnSpeichern.Click
+        Dim bezeichnung As String = txtBez.Text
+        Dim id As Integer = txtId.Text
+
+        MyDBHelper.UpdateMaschine(id, txtBez.Text)
+
+    End Sub
+
+
 End Class
