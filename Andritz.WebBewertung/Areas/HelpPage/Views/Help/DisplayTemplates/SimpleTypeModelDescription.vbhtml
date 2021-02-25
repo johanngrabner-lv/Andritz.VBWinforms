@@ -1,0 +1,3 @@
+@Imports Andritz.WebBewertung.Areas.HelpPage.ModelDescriptions
+@ModelType SimpleTypeModelDescription
+@Model.Documentation
