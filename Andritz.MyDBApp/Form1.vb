@@ -111,14 +111,14 @@ Public Class Form1
         lstProdukte.DataSource = maschinenListe
         lstProdukte.DisplayMember = "Bezeichnung"
         lstProdukte.ValueMember = "ID"
-
+        'AddHandler lstProdukte.SelectedIndexChanged, lstProdukte_SelectedIndexChanged()
 
     End Sub
 
     Private Sub lstProdukte_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstProdukte.SelectedIndexChanged
 
         Dim ausgewaehlteMaschine As Maschine = lstProdukte.SelectedItem
-        'Dim ausgewId As Int32 = CInt(lstProdukte.SelectedValue)
+        'Dim ausgewId As Int32 = CInt(lstProdukte.SelectedValue) -- NULL Fehler
         txtId.Text = ausgewaehlteMaschine.Id
         txtBez.Text = ausgewaehlteMaschine.Bezeichnung
 

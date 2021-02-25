@@ -7,13 +7,14 @@ Public Class MyDBHelper
         Dim con As DbConnection
         con = New SqlConnection(conString)
         con.Open()
-        Dim cmd As DbCommand = con.CreateCommand()
+        Dim cmd As SqlCommand = con.CreateCommand()
         'cmd.CommandText = "Update Maschienen SET Maschienenname=@m WHERE ID = @id"
         cmd.CommandText = "UpdateMachine"
         cmd.CommandType = CommandType.StoredProcedure
 
 
-        cmd.Parameters.Add(New SqlParameter("@Machinename", bezeichnung))
+        'cmd.Parameters.Add(New SqlParameter("@Machinename", bezeichnung))
+        cmd.Parameters.AddWithValue("@Machinename", bezeichnung)
         cmd.Parameters.Add(New SqlParameter("@id", id))
         cmd.Parameters.Add(New SqlParameter("@Preis", 250))
         cmd.Parameters.Add(New SqlParameter("@Archiviert", False))
@@ -29,13 +30,14 @@ Public Class MyDBHelper
         conString = My.Settings.andritzDB
 
 
-        Dim con As DbConnection
+        Dim con As SqlConnection
         con = New SqlConnection(conString)
 
         con.Open()
 
-        Dim cmd As DbCommand = con.CreateCommand()
+        Dim cmd As SqlCommand = con.CreateCommand()
         cmd.CommandText = "SELECT * FROM v_AlleMaschinen"
+
 
         Dim myReader As SqlDataReader = cmd.ExecuteReader()
         While (myReader.Read())
