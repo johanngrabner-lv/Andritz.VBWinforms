@@ -293,6 +293,10 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Andritz.DTOsDataTransferObject\Andritz.DTOsDataTransferObject.vbproj">
+      <Project>{ff26676d-d961-4d33-acac-da58c113a579}</Project>
+      <Name>Andritz.DTOsDataTransferObject</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Andritz.FreitagDBZugriff\Andritz.FreitagDBZugriff.vbproj">
       <Project>{2b38ca3e-37ba-4d7e-a8e2-654b1c03a7e1}</Project>
       <Name>Andritz.FreitagDBZugriff</Name>

@@ -1,4 +1,5 @@
 ﻿Imports System.Collections.ObjectModel
+Imports Andritz.DTOsDataTransferObject
 Imports Andritz.FreitagDBZugriff
 
 Public Class MainWindowViewModel

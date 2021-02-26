@@ -1,5 +1,6 @@
 ﻿Imports System.Net
 Imports System.Web.Http
+Imports Andritz.DTOsDataTransferObject
 Imports Andritz.FreitagDBZugriff
 
 Public Class MaschinenController

@@ -1,5 +1,6 @@
 ﻿Imports System.Data.Common
 Imports System.Data.SqlClient
+Imports Andritz.DTOsDataTransferObject
 
 Public Class MyDBHelper
     Public Shared Function UpdateMaschine(id As Integer, bezeichnung As String, orginalBezeichnung As String) As Integer
