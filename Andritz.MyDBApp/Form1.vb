@@ -108,16 +108,16 @@ Public Class Form1
     Private Sub btnLesen_Click(sender As Object, e As EventArgs) Handles btnLesen.Click
 
         Dim maschinenListe As List(Of Maschine) = MyDBHelper.GetMaschinen()
-        lstProdukte.DataSource = maschinenListe
-        lstProdukte.DisplayMember = "Bezeichnung"
-        lstProdukte.ValueMember = "ID"
+        lstProducts.DataSource = maschinenListe
+        lstProducts.DisplayMember = "Bezeichnung"
+        lstProducts.ValueMember = "ID"
         'AddHandler lstProdukte.SelectedIndexChanged, lstProdukte_SelectedIndexChanged()
 
     End Sub
 
-    Private Sub lstProdukte_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstProdukte.SelectedIndexChanged
+    Private Sub lstProdukte_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstProducts.SelectedIndexChanged
 
-        Dim ausgewaehlteMaschine As Maschine = lstProdukte.SelectedItem
+        Dim ausgewaehlteMaschine As Maschine = lstProducts.SelectedItem
         'Dim ausgewId As Int32 = CInt(lstProdukte.SelectedValue) -- NULL Fehler
         txtId.Text = ausgewaehlteMaschine.Id
         txtBez.Text = ausgewaehlteMaschine.Bezeichnung

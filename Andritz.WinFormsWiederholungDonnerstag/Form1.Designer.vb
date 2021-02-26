@@ -41,6 +41,7 @@ Partial Class Form1
         Me.Button1 = New System.Windows.Forms.Button()
         Me.lstWeekdays = New System.Windows.Forms.ListBox()
         Me.MyTimerControl1 = New Andritz.MeineControls.MyTimerControl()
+        Me.ElementHost1 = New System.Windows.Forms.Integration.ElementHost()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
@@ -117,13 +118,13 @@ Partial Class Form1
         'ShowEnglishToolStripMenuItem
         '
         Me.ShowEnglishToolStripMenuItem.Name = "ShowEnglishToolStripMenuItem"
-        Me.ShowEnglishToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ShowEnglishToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
         Me.ShowEnglishToolStripMenuItem.Text = "Show english"
         '
         'TreeviewToolStripMenuItem
         '
         Me.TreeviewToolStripMenuItem.Name = "TreeviewToolStripMenuItem"
-        Me.TreeviewToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TreeviewToolStripMenuItem.Size = New System.Drawing.Size(119, 22)
         Me.TreeviewToolStripMenuItem.Text = "Treeview"
         '
         'SplitContainer1
@@ -138,6 +139,7 @@ Partial Class Form1
         '
         'SplitContainer1.Panel2
         '
+        Me.SplitContainer1.Panel2.Controls.Add(Me.ElementHost1)
         Me.SplitContainer1.Panel2.Controls.Add(Me.MyTimerControl1)
         Me.SplitContainer1.Panel2.Controls.Add(Me.TextBox1)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Button1)
@@ -183,6 +185,15 @@ Partial Class Form1
         Me.MyTimerControl1.Size = New System.Drawing.Size(247, 115)
         Me.MyTimerControl1.TabIndex = 2
         '
+        'ElementHost1
+        '
+        Me.ElementHost1.Location = New System.Drawing.Point(67, 321)
+        Me.ElementHost1.Name = "ElementHost1"
+        Me.ElementHost1.Size = New System.Drawing.Size(200, 100)
+        Me.ElementHost1.TabIndex = 3
+        Me.ElementHost1.Text = "ElementHost1"
+        Me.ElementHost1.Child = Nothing
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -226,4 +237,5 @@ Partial Class Form1
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Button1 As Button
     Friend WithEvents MyTimerControl1 As MeineControls.MyTimerControl
+    Friend WithEvents ElementHost1 As Integration.ElementHost
 End Class

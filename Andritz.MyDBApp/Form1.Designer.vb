@@ -27,7 +27,7 @@ Partial Class Form1
         Me.txtBez = New System.Windows.Forms.TextBox()
         Me.btnLesen = New System.Windows.Forms.Button()
         Me.btnSpeichern = New System.Windows.Forms.Button()
-        Me.lstProdukte = New System.Windows.Forms.ListBox()
+        Me.lstProducts = New System.Windows.Forms.ListBox()
         Me.SuspendLayout()
         '
         'btnADO
@@ -71,20 +71,20 @@ Partial Class Form1
         Me.btnSpeichern.Text = "Speichern"
         Me.btnSpeichern.UseVisualStyleBackColor = True
         '
-        'lstProdukte
+        'lstProducts
         '
-        Me.lstProdukte.FormattingEnabled = True
-        Me.lstProdukte.Location = New System.Drawing.Point(48, 88)
-        Me.lstProdukte.Name = "lstProdukte"
-        Me.lstProdukte.Size = New System.Drawing.Size(120, 95)
-        Me.lstProdukte.TabIndex = 6
+        Me.lstProducts.FormattingEnabled = True
+        Me.lstProducts.Location = New System.Drawing.Point(48, 88)
+        Me.lstProducts.Name = "lstProducts"
+        Me.lstProducts.Size = New System.Drawing.Size(120, 95)
+        Me.lstProducts.TabIndex = 6
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.lstProdukte)
+        Me.Controls.Add(Me.lstProducts)
         Me.Controls.Add(Me.btnSpeichern)
         Me.Controls.Add(Me.btnLesen)
         Me.Controls.Add(Me.txtBez)
@@ -102,5 +102,5 @@ Partial Class Form1
     Friend WithEvents txtBez As TextBox
     Friend WithEvents btnLesen As Button
     Friend WithEvents btnSpeichern As Button
-    Friend WithEvents lstProdukte As ListBox
+    Friend WithEvents lstProducts As ListBox
 End Class
