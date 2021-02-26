@@ -25,6 +25,9 @@ Class MainWindow
         vm.Maschinen.Add(m2)
         Me.DataContext = vm
 
+        'Class-Library DB-Zugriff
+        'WPF - ViewModel - Databinding
+
     End Sub
     Private Sub Button_Click(sender As Object, e As RoutedEventArgs)
         MsgBox("Hello Andritz")
